@@ -3,11 +3,13 @@ from pydantic import BaseModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 
+MODEL_NAME = "microsoft/DialoGPT-medium"  # <-- Define constant here
+
 app = FastAPI()
 
 # Load model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
-model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+model = AutoModelForCausalLM.from_pretrained(MODEL_NAME)
 
 class ChatRequest(BaseModel):
     message: str
@@ -34,4 +36,4 @@ async def chat_endpoint(req: ChatRequest):
 
 @app.get("/health")
 async def health():
-    return {"status": "ok", "model": "microsoft/DialoGPT-medium"}
+    return {"status": "ok", "model": MODEL_NAME}  
