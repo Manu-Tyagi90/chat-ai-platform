@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import { resolve } from 'path'  // <-- Add this import for path resolution
+import { resolve } from 'path'  // For path resolution
 
 export default defineConfig({
   plugins: [
@@ -10,7 +10,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@chat-platform/shared': resolve(__dirname, '../../packages/shared/src'),  // <-- Add this alias for your shared package
+      '@chat-platform/shared': resolve(__dirname, '../../packages/shared/src'),
     },
   },
 })
