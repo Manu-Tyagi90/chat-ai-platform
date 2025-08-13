@@ -3,15 +3,14 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "rootDir": "src",
     "outDir": "dist",
-    "strict": true,
-    "module": "ESNext",
-    "target": "ES2020",
+    "rootDir": "src",
+    "esModuleInterop": true,
     "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true
+    "target": "ES2020",
+    "module": "ESNext",
+    "strict": true,
+    "skipLibCheck": true
   },
-  "include": ["src"],
-  "exclude": ["dist", "node_modules"]
+  "include": ["src"]
 }

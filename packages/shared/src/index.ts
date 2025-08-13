@@ -1,3 +1,2 @@
-export * from './types/chat';
-export * from './types/user';
-export * from './types/api';
+// Placeholder shared export
+export const helloShared = () => "Hello from shared!";
