@@ -14,11 +14,11 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "paths": {
-      "@chat-platform/shared/*": ["../../packages/shared/src/*"]  // <-- Ensures TS resolves shared during type checking
+      "@chat-platform/shared/*": ["../shared/src/*"]  // <-- Correct relative path from frontend to shared
     }
   },
   "include": ["src"],
   "references": [
-    { "path": "../../packages/shared" }  // <-- Adjusted relative path (from frontend to shared)
+    { "path": "../shared" }  // <-- Correct relative path to shared's folder (not tsconfig.json)
   ]
 }

@@ -6,7 +6,7 @@
   "description": "Frontend for AI chat platform",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",  
+    "build": "tsc -b && vite build",  
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md}\"",
