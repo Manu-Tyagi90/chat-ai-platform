@@ -1,34 +1,23 @@
-require('dotenv').config();
-
-import express from 'express';
-
-
-import cors from 'cors';
-import { getAIResponse } from './aiService';
+import express from "express";
+import cors from "cors";
+import aiService from "./aiService";
 
 const app = express();
-const PORT = 3001;
-
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'Backend is running!' });
-});
-
-app.post('/api/chat', async (req, res) => {
-  const { message, history = [] } = req.body;
+app.post("/api/ask", async (req, res) => {
+  const { prompt } = req.body;
   try {
-    const aiResponse = await getAIResponse(message, history);
-    res.json({
-      response: aiResponse,
-      success: true,
-    });
+    const result = await aiService(prompt);
+    res.json(result);
   } catch (err) {
-    res.status(500).json({ response: 'AI service error', success: false });
+    console.error(err);
+    res.status(500).json({ error: "Something went wrong" });
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend server running on http://localhost:${PORT}`);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
