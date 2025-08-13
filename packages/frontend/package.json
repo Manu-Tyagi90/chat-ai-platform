@@ -12,6 +12,7 @@
   "dependencies": {
     "@chat-platform/shared": "file:../shared",
     "@tailwindcss/vite": "^4.1.11",
+    "dotenv": "^16.0.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
